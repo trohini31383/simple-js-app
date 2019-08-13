@@ -1,27 +1,35 @@
 
 var  repository= [
     {
-        name: 'Charizard',
-        height: 5,
-        types: ['Fire','Flying']
+        Name: 'Charizard',
+        Height: 5,
+        Type: ['Fire','Flying']
     },
     {
-        name:'Mewtwo',
-        height: 6,
-        type: ['Psychic']
+        Name:'Mewtwo',
+        Height: 6,
+        Type: ['Psychic']
     },
     {
-        name: 'Sceptile',
-        height:5,
-       type: ['Grass', 'poison']
+        Name: 'Sceptile',
+        Height:5,
+        Type: ['Grass', 'poison']
     },
   ];
   for(var i = 0 ; i < repository.length ; i++){
     var pokemon= repository[i];
-    if(pokemon.height>5){
-    document.write('<p>' + pokemon.name +  ' (height : ' + pokemon.height + ') - Wow, that\'s big!' + '</p>');
+    if(pokemon.Height>5){
+    document.write('<p>' + pokemon.Name +  ' (Height : ' + pokemon.Height + ') - Wow, that\'s big!' + '</p>');
   }
   else{
-    document.write('<p>' + pokemon.name +  ' (height : ' + pokemon.height + ')' + '</p>');
+    document.write('<p>' + pokemon.Name +  ' (Height : ' + pokemon.Height + ')' + '</p>');
   }
   }
+  document.write('<h1> List of Pokemons with their height & type </h1>')
+repository.forEach(myFunction);
+
+function myFunction(item, index) {
+  for (var key in item) {
+    document.write( key +  ":"  + item[key] + '<br>' + '<br>'  );
+  }
+}

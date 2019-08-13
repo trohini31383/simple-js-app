@@ -2,4 +2,5 @@ body{
   background-color: lightyellow;
   text-decoration-style:solid;
   font-size: 20px;
+  display: grid;
 }
