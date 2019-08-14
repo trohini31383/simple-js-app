@@ -1,4 +1,4 @@
-
+var pokemonRepository = (function () {
 var  repository= [
     {
         Name: 'Charizard',
@@ -16,20 +16,29 @@ var  repository= [
         Type: ['Grass', 'poison']
     },
   ];
-  for(var i = 0 ; i < repository.length ; i++){
-    var pokemon= repository[i];
-    if(pokemon.Height>5){
-    document.write('<p>' + pokemon.Name +  ' (Height : ' + pokemon.Height + ') - Wow, that\'s big!' + '</p>');
-  }
-  else{
-    document.write('<p>' + pokemon.Name +  ' (Height : ' + pokemon.Height + ')' + '</p>');
-  }
-  }
-  document.write('<h1> List of Pokemons with their height & type </h1>')
-repository.forEach(myFunction);
 
-function myFunction(item, index) {
+    function add(pokemon) {
+      repository.push(pokemon);
+    }
+
+    function getAll() {
+      return repository;
+    }
+
+    return {
+      add: add,
+      getAll: getAll
+    };
+
+  })();
+document.write('<h1>List of Pokemons</h1> ')
+pokemonRepository.add({ Name: 'Pikachu' })
+pokemonRepository.getAll().forEach(pokemon);
+
+
+
+function pokemon(item, index) {
   for (var key in item) {
-    document.write( key +  ":"  + item[key] + '<br>' + '<br>'  );
+  document.write( key +  ":"  + item[key] + '<br>' + '<br>'  );
   }
 }
