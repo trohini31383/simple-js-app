@@ -24,21 +24,32 @@ var  repository= [
     function getAll() {
       return repository;
     }
+    function addListItem(pokemon){
+    var $listItem = document.createElement('li');
+    var $newButton = document.createElement('button');
+    $listItem.classList.add('buttonstyle');
+    $pokemonlist.appendChild($listItem);
+    $newButton.innerText = pokemon.Name;
+    $listItem.appendChild($newButton);
+    $newButton.addEventListener('click', function(event) {
+			showDetails(pokemon);
+     		});
+  }
+  function showDetails(pokemon){
+     console.log(pokemon.Name)
+ }
+
 
     return {
       add: add,
-      getAll: getAll
+      getAll: getAll,
+      addListItem: addListItem,
+      showDetails:showDetails,
     };
 
   })();
-document.write('<h1>List of Pokemons</h1> ')
-pokemonRepository.add({ Name: 'Pikachu' })
-pokemonRepository.getAll().forEach(pokemon);
+$pokemonlist = document.querySelector('.pokemon-list');
 
-
-
-function pokemon(item, index) {
-  for (var key in item) {
-  document.write( key +  ":"  + item[key] + '<br>' + '<br>'  );
-  }
-}
+pokemonRepository.getAll().forEach(function(pokemon){
+  pokemonRepository.addListItem(pokemon)
+})
